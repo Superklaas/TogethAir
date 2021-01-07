@@ -1,10 +1,7 @@
 package be.vdab.domain;
 
 import be.vdab.domain.user.EmployeeAirline;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Value;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -18,7 +15,7 @@ public class Airline {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotBlank
+    @NonNull
     private String name;
 
     @OneToMany(mappedBy = "airline")

@@ -1,12 +1,17 @@
 package be.vdab.domain;
 
 import be.vdab.domain.user.EmployeeAirline;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.Value;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
+@Data
 public class Airline {
 
     @Id
@@ -24,12 +29,5 @@ public class Airline {
 
     @OneToMany (mappedBy = "airline")
     private List<EmployeeAirline> employees;
-
-    public Airline(String name) {
-        this.name = name;
-    }
-
-    public Airline() {}
-
 
 }

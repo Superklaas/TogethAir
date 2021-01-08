@@ -1,4 +1,4 @@
 package be.vdab.domain;
 
-public class Location {
+public class Airport {
 }

@@ -15,10 +15,10 @@ import java.util.Map;
 public class Flight extends AbstractEntity {
 
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    private Location departure;
+    private Airport departure;
 
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    private Location destination;
+    private Airport destination;
 
     @NonNull
     private LocalDateTime departureTime;
@@ -34,10 +34,10 @@ public class Flight extends AbstractEntity {
     @MapKeyEnumerated(EnumType.STRING)
     private Map<TravelClass,Integer> bookedSeats;
 
-    @ManyToOne(cascade = CascadeType., fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private Airplane airplane;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private Airline airline;
 
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)

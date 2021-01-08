@@ -18,6 +18,7 @@ public class Discount extends AbstractEntity {
     private final int togethAirRate = 5;
 
     @NonNull
+    @Enumerated(EnumType.STRING)
     private TimeCategory timeCategory;
 
     @NonNull
@@ -29,7 +30,7 @@ public class Discount extends AbstractEntity {
     @ElementCollection
     private Map<Integer,Integer> volumeDiscount;
 
-    @OneToMany(mappedBy = "discount")
+    @OneToMany(mappedBy = "discount", cascade = CascadeType.REFRESH)
     private List<Flight> flights;
 
 }

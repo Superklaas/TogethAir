@@ -11,7 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString
 public class Airline extends AbstractEntity {
 
     @NonNull

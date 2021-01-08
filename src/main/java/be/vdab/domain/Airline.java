@@ -8,13 +8,11 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
-@Data
+@AllArgsConstructor
 @NoArgsConstructor
-public class Airline {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+@Getter
+@ToString
+public class Airline extends AbstractEntity {
 
     @NonNull
     private String name;

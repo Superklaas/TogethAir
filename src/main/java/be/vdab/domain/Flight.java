@@ -40,7 +40,7 @@ public class Flight extends AbstractEntity {
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private Airline airline;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private Discount discount;
 
     @OneToMany(mappedBy = "flight", cascade = CascadeType.PERSIST)

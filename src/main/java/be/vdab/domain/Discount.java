@@ -18,16 +18,20 @@ public class Discount extends AbstractEntity {
     private final int togethAirRate = 5;
 
     @NonNull
-    @Enumerated(EnumType.STRING)
-    private TimeCategory timeCategory;
+    @ElementCollection
+    @MapKeyEnumerated(EnumType.STRING)
+    @MapKeyColumn(name = "time_category")
+    private Map<TimeCategory,Integer> timeCategoryRate;
 
     @NonNull
     @ElementCollection
     @MapKeyEnumerated(EnumType.STRING)
+    @MapKeyColumn(name = "travel_class")
     private Map<TravelClass,Integer> travelClassRate;
 
     @NonNull
     @ElementCollection
+    @MapKeyColumn(name = "volume")
     private Map<Integer,Integer> volumeDiscount;
 
     @OneToMany(mappedBy = "discount", cascade = CascadeType.REFRESH)

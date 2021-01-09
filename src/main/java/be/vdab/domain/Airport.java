@@ -20,11 +20,10 @@ public class Airport extends AbstractEntity {
     private String name;
 
     @NonNull
-    private String city;
-
-    private String region;
-
     private String country;
+
+    @NonNull
+    private String region;
 
     @NonNull
     private String airportCode;

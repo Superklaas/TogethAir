@@ -32,6 +32,7 @@ public class Flight extends AbstractEntity {
 
     @ElementCollection
     @MapKeyEnumerated(EnumType.STRING)
+    @MapKeyColumn(name = "travel_class")
     private Map<TravelClass,Integer> bookedSeats;
 
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)

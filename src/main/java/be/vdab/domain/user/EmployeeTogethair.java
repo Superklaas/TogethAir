@@ -11,7 +11,7 @@ import javax.persistence.Entity;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public class EmployeeTogethAir extends AppUser {
+public class EmployeeTogethair extends AppUser {
 
     @NonNull
     private int employeeNumber;

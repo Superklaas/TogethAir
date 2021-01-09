@@ -24,6 +24,7 @@ public class Airplane extends AbstractEntity {
     @NonNull
     @ElementCollection
     @MapKeyEnumerated(EnumType.STRING)
+    @MapKeyColumn(name = "travel_class")
     private Map<TravelClass,Integer> capacity;
 
     @ManyToMany(mappedBy = "airplanes", cascade = CascadeType.REFRESH)

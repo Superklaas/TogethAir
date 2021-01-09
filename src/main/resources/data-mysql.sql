@@ -41,7 +41,7 @@ INSERT INTO airport (id, airport_code, country, name, region) VALUES (6, 'AEP', 
 
 INSERT INTO customer (id, name, customer_number) VALUES (1, 'Filip', 1234);
 
-INSERT INTO booking (id, date_booking, is_payed, payment_method, price_booking, customer_id) VALUES (2, '2021-01-07', true, 'CREDITCARD', 250, 1);
+INSERT INTO booking (id, date_booking, is_payed, payment_method, price_booking, customer_id) VALUES (1, '2021-01-07', true, 'CREDITCARD', 250, 1);
 
 INSERT INTO discount (id, togeth_air_rate) VALUES (1, 5);
 
@@ -54,7 +54,24 @@ INSERT INTO discount_travel_class_rate (discount_id, travel_class_rate, travel_c
 INSERT INTO discount_travel_class_rate (discount_id, travel_class_rate, travel_class) VALUES (1, 2, 'ECONOMY');
 INSERT INTO discount_travel_class_rate (discount_id, travel_class_rate, travel_class) VALUES (1, 5, 'FIRSTCLASS');
 
-INSERT INTO togethair.discount_volume_discount (discount_id, volume_discount, volume) VALUES (1, 4, 2);
-INSERT INTO togethair.discount_volume_discount (discount_id, volume_discount, volume) VALUES (1, 10, 5);
+INSERT INTO discount_volume_discount (discount_id, volume_discount, volume) VALUES (1, 4, 2);
+INSERT INTO discount_volume_discount (discount_id, volume_discount, volume) VALUES (1, 10, 5);
+
+INSERT INTO employee_airline (id, name, employee_number, airline_id) VALUES (1, 'Klaas', 3456, 1);
+
+INSERT INTO employee_togethair (id, name, employee_number) VALUES (1, 'Jonas', 5678);
+
+INSERT INTO flight (id, arrival_time, base_price, departure_time, airline_id, airplane_id, departure_id, destination_id, discount_id)
+VALUES (1, '2021-01-09 21:52:14', 200, '2021-01-09 19:52:21', 1, 2, 1, 5, 1);
+
+INSERT INTO flight_booked_seats (flight_id, booked_seats, travel_class) VALUES (1, 35, 'BUSINESS');
+INSERT INTO flight_booked_seats (flight_id, booked_seats, travel_class) VALUES (1, 267, 'ECONOMY');
+INSERT INTO flight_booked_seats (flight_id, booked_seats, travel_class) VALUES (1, 10, 'FIRSTCLASS');
+
+INSERT INTO passenger (id, name) VALUES (1, 'Jezus');
+
+INSERT INTO ticket (id, travel_class, booking_id, flight_id, passenger_id) VALUES (1, 'ECONOMY', 1, 1, 1);
+
+
 
 

@@ -11,14 +11,9 @@ import java.util.Map;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@RequiredArgsConstructor
 @Getter
 public class Flight extends AbstractEntity {
-
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    private Airport departure;
-
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
-    private Airport destination;
 
     @NonNull
     private LocalDateTime departureTime;
@@ -27,8 +22,15 @@ public class Flight extends AbstractEntity {
     private LocalDateTime arrivalTime;
 
     @NonNull
-    @Digits(integer = 5, fraction = 2)
+    @Digits(integer = 5, fraction = 2,
+            message = "basePrice can contain 5 digits in integer and 2 digits in fraction")
     private double basePrice;
+
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    private Airport departure;
+
+    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    private Airport destination;
 
     @ElementCollection
     @MapKeyEnumerated(EnumType.STRING)

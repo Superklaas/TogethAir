@@ -19,14 +19,12 @@ public class Booking extends AbstractEntity {
     @NonNull
     private LocalDate dateBooking;
 
-    @NonNull
     private double priceBooking;
 
     @NonNull
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 
-    @NonNull
     private boolean isPayed;
 
     @OneToMany(mappedBy = "booking", cascade = CascadeType.PERSIST)

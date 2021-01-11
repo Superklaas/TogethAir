@@ -9,11 +9,8 @@ import javax.persistence.Entity;
 
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 @Getter
 public class EmployeeTogethair extends AppUser {
-
-    @NonNull
-    private int employeeNumber;
 
 }

@@ -17,9 +17,6 @@ import javax.persistence.ManyToOne;
 @Getter
 public class EmployeeAirline extends AppUser {
 
-    @NonNull
-    private int employeeNumber;
-
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     private Airline airline;
 

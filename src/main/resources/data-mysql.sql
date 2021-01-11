@@ -39,7 +39,8 @@ INSERT INTO airport (id, airport_code, country, name, region) VALUES (4, 'JFK', 
 INSERT INTO airport (id, airport_code, country, name, region) VALUES (5, 'LAX', 'Los Angeles', 'Los Angeles Airport', 'North America');
 INSERT INTO airport (id, airport_code, country, name, region) VALUES (6, 'AEP', 'Buenos Aires', 'Aeroparque Jorge Newbery', 'South America');
 
-INSERT INTO customer (id, name, customer_number) VALUES (1, 'Filip', 1234);
+INSERT INTO customer (id, name, credit_card_number, expiration_date)
+VALUES (1, 'Filip', '4564-7896-8976-9876', '01/12');
 
 INSERT INTO booking (id, date_booking, is_payed, payment_method, price_booking, customer_id) VALUES (1, '2021-01-07', true, 'CREDITCARD', 250, 1);
 
@@ -57,9 +58,9 @@ INSERT INTO discount_travel_class_rate (discount_id, travel_class_rate, travel_c
 INSERT INTO discount_volume_discount (discount_id, volume_discount, volume) VALUES (1, 4, 2);
 INSERT INTO discount_volume_discount (discount_id, volume_discount, volume) VALUES (1, 10, 5);
 
-INSERT INTO employee_airline (id, name, employee_number, airline_id) VALUES (1, 'Klaas', 3456, 1);
+INSERT INTO employee_airline (id, name, airline_id) VALUES (1, 'Klaas', 1);
 
-INSERT INTO employee_togethair (id, name, employee_number) VALUES (1, 'Jonas', 5678);
+INSERT INTO employee_togethair (id, name) VALUES (1, 'Jonas');
 
 INSERT INTO flight (id, arrival_time, base_price, departure_time, airline_id, airplane_id, departure_id, destination_id, discount_id)
 VALUES (1, '2021-01-09 21:52:14', 200, '2021-01-09 19:52:21', 1, 2, 1, 5, 1);

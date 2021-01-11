@@ -1,12 +1,7 @@
 package be.vdab.domain;
 
-import be.vdab.TogethAirApplication;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.validation.*;
 
@@ -55,13 +50,5 @@ public class FlightTests {
         assertEquals("basePrice can contain 5 digits in integer and 2 digits in fraction",
                 violations.iterator().next().getMessage());
     }
-
-    @Test
-    void requiredParametersAbsentAtConstructionObject() {
-        flight = new Flight();
-        Set<ConstraintViolation<Flight>> violations = validator.validate(flight);
-        assertFalse(violations.isEmpty());
-    }
-
 
 }

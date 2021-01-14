@@ -1,9 +1,6 @@
 package be.vdab.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,6 +9,7 @@ import java.util.List;
 
 @Entity
 @AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Getter
 public class Airport extends AbstractEntity {
@@ -19,13 +17,10 @@ public class Airport extends AbstractEntity {
     @NonNull
     private String name;
 
-    @NonNull
     private String country;
 
-    @NonNull
     private String region;
 
-    @NonNull
     private String airportCode;
 
     @OneToMany(mappedBy = "departure", cascade = CascadeType.REFRESH)

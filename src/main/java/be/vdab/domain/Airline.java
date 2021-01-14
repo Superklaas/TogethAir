@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 @AllArgsConstructor
+@RequiredArgsConstructor
 @NoArgsConstructor
 @Getter
 public class Airline extends AbstractEntity {

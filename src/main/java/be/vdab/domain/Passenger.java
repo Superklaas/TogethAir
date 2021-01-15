@@ -1,5 +1,6 @@
 package be.vdab.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Passenger extends AbstractEntity {
     @NonNull
     private String name;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "passenger",cascade = CascadeType.REFRESH)
     private List<Ticket> tickets;
 

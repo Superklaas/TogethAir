@@ -1,5 +1,7 @@
 package be.vdab.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +36,7 @@ public class Discount extends AbstractEntity {
     @MapKeyColumn(name = "volume")
     private Map<Integer,Integer> volumeDiscount;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "discount", cascade = CascadeType.REFRESH)
     private List<Flight> flights;
 

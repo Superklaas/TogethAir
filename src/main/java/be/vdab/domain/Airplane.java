@@ -1,5 +1,8 @@
 package be.vdab.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +33,7 @@ public class Airplane extends AbstractEntity {
     @ManyToMany(mappedBy = "airplanes", cascade = CascadeType.REFRESH)
     private List<Airline> airlines;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "airplane", cascade = CascadeType.REFRESH)
     private List<Flight> flights;
 

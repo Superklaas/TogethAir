@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -23,6 +24,10 @@ public class FlightService {
     private FlightRepository flightRepository;
     private AirlineRepository airlineRepository;
     private AirportRepository airportRepository;
+
+    public Optional<Flight> getFlightById(int id) {
+        return flightRepository.findById(id);
+    }
 
     public List<Flight> readAllFlights() {
         return flightRepository.findAll();

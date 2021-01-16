@@ -47,7 +47,7 @@ public class FlightServiceTests {
         when(airlineRepository.findAirlineByNameContaining("KLM")).thenReturn(klm);
         when(airportRepository.findAirportByNameContaining("Brussels")).thenReturn(brussels);
         when(airportRepository.findAirportByNameContaining("Los Angeles")).thenReturn(losAngeles);
-        when(flightRepository.findFlightByAirlineAndDepartureAndDestinationAndDepartureTimeBetween(
+        when(flightRepository.getFlightByAirlineAndDepartureAndDestinationAndDepartureTimeBetween(
                 klm,brussels,losAngeles,dateDeparture.atStartOfDay(),dateDeparture.atTime(23,59)
         )).thenReturn(flights);
 

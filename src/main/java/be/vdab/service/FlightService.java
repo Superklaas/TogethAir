@@ -25,12 +25,16 @@ public class FlightService {
     private AirlineRepository airlineRepository;
     private AirportRepository airportRepository;
 
-    public Optional<Flight> getFlightById(int id) {
-        return flightRepository.findById(id);
+    public List<Flight> getAllFlights() {
+        return flightRepository.findAll();
     }
 
-    public List<Flight> readAllFlights() {
-        return flightRepository.findAll();
+    public List<Flight> getFlightByBasePrice(double price) {
+        return flightRepository.getFlightByBasePrice(price);
+    }
+
+    public Optional<Flight> getFlightById(int id) {
+        return flightRepository.findById(id);
     }
 
     public List<Flight> searchFlights(String airlineName, String departureName,
@@ -40,8 +44,12 @@ public class FlightService {
         Airport destination = airportRepository.findAirportByNameContaining(destinationName);
         LocalDateTime startOfDay = dateDeparture.atStartOfDay();
         LocalDateTime endOfDay = dateDeparture.atTime(23,59);
-        return flightRepository.findFlightByAirlineAndDepartureAndDestinationAndDepartureTimeBetween(
+        return flightRepository.getFlightByAirlineAndDepartureAndDestinationAndDepartureTimeBetween(
                         airline,departure,destination,startOfDay,endOfDay);
+    }
+
+    public void createFlight(Flight flight) {
+        flightRepository.save(flight);
     }
 
 }

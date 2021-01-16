@@ -12,7 +12,9 @@ import java.util.List;
 
 public interface FlightRepository extends JpaRepository<Flight,Integer> {
 
-    public List<Flight> findFlightByAirlineAndDepartureAndDestinationAndDepartureTimeBetween(
+    List<Flight> getFlightByBasePrice(double price);
+
+    List<Flight> getFlightByAirlineAndDepartureAndDestinationAndDepartureTimeBetween(
             Airline airline, Airport departure, Airport destination,LocalDateTime startOfDay,LocalDateTime endOfDay);
 
 }

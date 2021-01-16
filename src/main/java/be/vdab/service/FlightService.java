@@ -25,6 +25,10 @@ public class FlightService {
     private AirlineRepository airlineRepository;
     private AirportRepository airportRepository;
 
+    public void createFlight(Flight flight) {
+        flightRepository.save(flight);
+    }
+
     public List<Flight> getAllFlights() {
         return flightRepository.findAll();
     }
@@ -48,8 +52,6 @@ public class FlightService {
                         airline,departure,destination,startOfDay,endOfDay);
     }
 
-    public void createFlight(Flight flight) {
-        flightRepository.save(flight);
-    }
+
 
 }

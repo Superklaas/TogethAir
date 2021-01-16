@@ -21,17 +21,17 @@ public class FlightRestController {
 
     private FlightService flightService;
 
-    @GetMapping(path = "")
+    @GetMapping(path = "/getAllFlights")
     public List<Flight> getAllFlights() {
         return flightService.getAllFlights();
     }
 
-    @GetMapping(path = "{id}")
+    @GetMapping(path = "/getFlightById/{id}")
     public Optional<Flight> getFlightById(@PathVariable("id") int id) {
         return flightService.getFlightById(id);
     }
 
-    @GetMapping(params = {"basePrice"})
+    @GetMapping(path = "/getFlightByBasePrice",params = {"basePrice"})
     public List<Flight> getFlightByBasePrice(@RequestParam("basePrice") double price) {
         return flightService.getFlightByBasePrice(price);
     }
@@ -45,14 +45,14 @@ public class FlightRestController {
 //        return flightService.searchFlights(airlineName,departureName,destinationName,dateDeparture);
 //    }
 
-    @PostMapping
-    public ResponseEntity addFlight(@RequestBody Flight flight, HttpServletRequest request) {
-        if(flight.getId() != 0){
-            return ResponseEntity.badRequest().build();
-        }
-        flightService.createFlight(flight);
-        URI uri = URI.create(request.getRequestURL()+"/"+flight.getId());
-        return ResponseEntity.created(uri).build();
-    }
+//    @PostMapping(path = "/addFlight")
+//    public ResponseEntity addFlight(@RequestBody Flight flight, HttpServletRequest request) {
+//        if(flight.getId() != 0){
+//            return ResponseEntity.badRequest().build();
+//        }
+//        flightService.createFlight(flight);
+//        URI uri = URI.create(request.getRequestURL()+"/"+flight.getId());
+//        return ResponseEntity.created(uri).build();
+//    }
 
 }

@@ -69,6 +69,20 @@ public class FlightRestController {
         }
     }
 
+    @PatchMapping(path = "/updateBasePrice/{id}")
+    public ResponseEntity updateBasePrice(@PathVariable("id") int id, @RequestBody Flight patchFlight) {
+        Flight flight = flightService.getFlightById(id).get();
+        if(flight.equals(null)) {
+            return ResponseEntity.notFound().build();   // creates statuscode 404
+        } else if((patchFlight.getId() != id) && (patchFlight.getId() != 0)) {
+            return ResponseEntity.badRequest().build(); // creates statuscode 400
+        } else {
+            flight.setBasePrice(patchFlight.getBasePrice());
+            flightService.updateFlight(flight);
+            return ResponseEntity.ok().build(); // creates statuscode 200
+        }
+    }
+
 
 
 

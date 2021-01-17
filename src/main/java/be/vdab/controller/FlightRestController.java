@@ -75,7 +75,7 @@ public class FlightRestController {
         if(flight.equals(null)) {
             return ResponseEntity.notFound().build();   // creates statuscode 404
         } else if((patchFlight.getId() != id) && (patchFlight.getId() != 0)) {
-            return ResponseEntity.badRequest().build(); // creates statuscode 400
+            return ResponseEntity.badRequest().build(); // creates statuscode 400, if patchFlight = other flight in db
         } else {
             flight.setBasePrice(patchFlight.getBasePrice());
             flightService.updateFlight(flight);

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
@@ -49,20 +50,20 @@ public class FlightRestController {
     }
 
     @PostMapping(path = "/addFlight")
-    public ResponseEntity addFlight(@RequestBody Flight flight, HttpServletRequest request) {
+    public ResponseEntity addFlight(@Valid @RequestBody Flight flight, HttpServletRequest request) {
         if(flight.getId() != 0){
-            return ResponseEntity.badRequest().build(); // creates statuscode 400
+            return ResponseEntity.badRequest().build(); // creates statuscode 400 if new flight exists already
         } else {
             flightService.createFlight(flight);
             URI uri = URI.create(request.getRequestURL()+"/"+flight.getId());
-            return ResponseEntity.created(uri).build(); // creates statuscode 201
+            return ResponseEntity.created(uri).build(); // creates statuscode 201 & Location in status description
         }
     }
 
     @PutMapping(path = "/{id}/updateFlight")
-    public ResponseEntity updateFlight(@PathVariable("id") int id, @RequestBody Flight flight) {
+    public ResponseEntity updateFlight(@PathVariable("id") int id, @Valid @RequestBody Flight flight) {
         if(flight.getId() != id) {
-            return ResponseEntity.badRequest().build(); // creates statuscode 400
+            return ResponseEntity.badRequest().build(); // creates statuscode 400 if source not equal to target
         } else {
             flightService.updateFlight(flight);
             return ResponseEntity.ok().build(); // creates statuscode 200
@@ -73,9 +74,9 @@ public class FlightRestController {
     public ResponseEntity updateBasePrice(@PathVariable("id") int id, @RequestBody Flight patchFlight) {
         Flight flight = flightService.getFlightById(id).get();
         if(flight.equals(null)) {
-            return ResponseEntity.notFound().build();   // creates statuscode 404
+            return ResponseEntity.notFound().build();   // creates statuscode 404 if no flight matches id in url
         } else if((patchFlight.getId() != id) && (patchFlight.getId() != 0)) {
-            return ResponseEntity.badRequest().build(); // creates statuscode 400, if patchFlight = other flight in db
+            return ResponseEntity.badRequest().build(); // creates statuscode 400 if patchFlight = other flight in db
         } else {
             flight.setBasePrice(patchFlight.getBasePrice());
             flightService.updateFlight(flight);

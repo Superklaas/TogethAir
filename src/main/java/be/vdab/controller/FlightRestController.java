@@ -59,7 +59,7 @@ public class FlightRestController {
         }
     }
 
-    @PutMapping(path = "/updateFlight/{id}")
+    @PutMapping(path = "/{id}/updateFlight")
     public ResponseEntity updateFlight(@PathVariable("id") int id, @RequestBody Flight flight) {
         if(flight.getId() != id) {
             return ResponseEntity.badRequest().build(); // creates statuscode 400
@@ -69,7 +69,7 @@ public class FlightRestController {
         }
     }
 
-    @PatchMapping(path = "/updateBasePrice/{id}")
+    @PatchMapping(path = "/{id}/updateBasePrice")
     public ResponseEntity updateBasePrice(@PathVariable("id") int id, @RequestBody Flight patchFlight) {
         Flight flight = flightService.getFlightById(id).get();
         if(flight.equals(null)) {
@@ -82,6 +82,14 @@ public class FlightRestController {
             return ResponseEntity.ok().build(); // creates statuscode 200
         }
     }
+
+    @DeleteMapping(path = "/{id}/deleteFlight")
+    public ResponseEntity deleteFlight(@PathVariable("id") int id) {
+        flightService.deleteFlight(id);
+        return ResponseEntity.noContent().build();  // creates statuscode 204
+    }
+
+
 
 
 

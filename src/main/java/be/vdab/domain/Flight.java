@@ -16,6 +16,7 @@ import java.util.Map;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Getter
+@Setter
 public class Flight extends AbstractEntity {
 
     @NonNull

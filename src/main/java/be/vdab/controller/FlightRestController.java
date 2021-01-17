@@ -48,15 +48,15 @@ public class FlightRestController {
         return flightService.searchFlights(airlineName,departureName,destinationName,dateDeparture);
     }
 
-//    @PostMapping(path = "/addFlight")
-//    public ResponseEntity addFlight(@RequestBody Flight flight, HttpServletRequest request) {
-//        if(flight.getId() != 0){
-//            return ResponseEntity.badRequest().build();
-//        }
-//        flightService.createFlight(flight);
-//        URI uri = URI.create(request.getRequestURL()+"/"+flight.getId());
-//        return ResponseEntity.created(uri).build();
-//    }
+    @PostMapping(path = "/addFlight")
+    public ResponseEntity addFlight(@RequestBody Flight flight, HttpServletRequest request) {
+        if(flight.getId() != 0){
+            return ResponseEntity.badRequest().build();
+        }
+        flightService.createFlight(flight);
+        URI uri = URI.create(request.getRequestURL()+"/"+flight.getId());
+        return ResponseEntity.created(uri).build();
+    }
 
 
 

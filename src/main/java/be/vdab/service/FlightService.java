@@ -52,6 +52,10 @@ public class FlightService {
                         airline,departure,destination,startOfDay,endOfDay);
     }
 
+    public void updateFlight(Flight flight) {
+        flightRepository.save(flight);
+    }
+
 
 
 }

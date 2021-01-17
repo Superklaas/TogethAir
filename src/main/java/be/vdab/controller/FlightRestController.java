@@ -51,11 +51,22 @@ public class FlightRestController {
     @PostMapping(path = "/addFlight")
     public ResponseEntity addFlight(@RequestBody Flight flight, HttpServletRequest request) {
         if(flight.getId() != 0){
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().build(); // creates statuscode 400
+        } else {
+            flightService.createFlight(flight);
+            URI uri = URI.create(request.getRequestURL()+"/"+flight.getId());
+            return ResponseEntity.created(uri).build(); // creates statuscode 201
         }
-        flightService.createFlight(flight);
-        URI uri = URI.create(request.getRequestURL()+"/"+flight.getId());
-        return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping(path = "/updateFlight/{id}")
+    public ResponseEntity updateFlight(@PathVariable("id") int id, @RequestBody Flight flight) {
+        if(flight.getId() != id) {
+            return ResponseEntity.badRequest().build(); // creates statuscode 400
+        } else {
+            flightService.updateFlight(flight);
+            return ResponseEntity.ok().build(); // creates statuscode 200
+        }
     }
 
 

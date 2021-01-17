@@ -36,14 +36,17 @@ public class FlightRestController {
         return flightService.getFlightByBasePrice(price);
     }
 
-//    @GetMapping(params = {"airlineName","departureName","destinationName","dateDeparture"})
-//    public List<Flight> searchFlights(
-//            @RequestParam(value = "airlineName",required = false) String airlineName,
-//            @RequestParam(value = "departureName",required = false)String departureName,
-//            @RequestParam(value = "destinationName",required = false) String destinationName,
-//            @RequestParam(value = "dateDeparture",required = false)LocalDate dateDeparture) {
-//        return flightService.searchFlights(airlineName,departureName,destinationName,dateDeparture);
-//    }
+    @GetMapping(
+            path = "/searchFlights",
+            params = {"airlineName","departureName","destinationName","dateDeparture"})
+    public List<Flight> searchFlights(
+            @RequestParam(value = "airlineName",required = false,defaultValue = "Brussels Airlines") String airlineName,
+            @RequestParam(value = "departureName",required = false,defaultValue = "Brussels") String departureName,
+            @RequestParam(value = "destinationName",required = false,defaultValue = "Los Angeles") String destinationName,
+            @RequestParam(value = "dateDeparture",required = false,defaultValue = "2021-01-09") String dateString) {
+        LocalDate dateDeparture = LocalDate.parse(dateString);
+        return flightService.searchFlights(airlineName,departureName,destinationName,dateDeparture);
+    }
 
 //    @PostMapping(path = "/addFlight")
 //    public ResponseEntity addFlight(@RequestBody Flight flight, HttpServletRequest request) {
@@ -54,5 +57,7 @@ public class FlightRestController {
 //        URI uri = URI.create(request.getRequestURL()+"/"+flight.getId());
 //        return ResponseEntity.created(uri).build();
 //    }
+
+
 
 }

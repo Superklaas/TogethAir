@@ -41,10 +41,10 @@ public class FlightRestController {
             path = "/searchFlights",
             params = {"airlineName","departureName","destinationName","dateDeparture"})
     public List<Flight> searchFlights(
-            @RequestParam(value = "airlineName",required = false,defaultValue = "Brussels Airlines") String airlineName,
-            @RequestParam(value = "departureName",required = false,defaultValue = "Brussels") String departureName,
-            @RequestParam(value = "destinationName",required = false,defaultValue = "Los Angeles") String destinationName,
-            @RequestParam(value = "dateDeparture",required = false,defaultValue = "2021-01-09") String dateString) {
+            @RequestParam(value = "airlineName",required = false) String airlineName,
+            @RequestParam(value = "departureName",required = false) String departureName,
+            @RequestParam(value = "destinationName",required = false) String destinationName,
+            @RequestParam(value = "dateDeparture",required = false) String dateString) {
         LocalDate dateDeparture = LocalDate.parse(dateString);
         return flightService.searchFlights(airlineName,departureName,destinationName,dateDeparture);
     }

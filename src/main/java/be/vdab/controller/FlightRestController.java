@@ -37,16 +37,13 @@ public class FlightRestController {
         return flightService.getFlightByBasePrice(price);
     }
 
-    @GetMapping(
-            path = "/searchFlights",
-            params = {"airlineName","departureName","destinationName","dateDeparture"})
+    @GetMapping(path = "/searchFlights")
     public List<Flight> searchFlights(
             @RequestParam(value = "airlineName",required = false) String airlineName,
             @RequestParam(value = "departureName",required = false) String departureName,
             @RequestParam(value = "destinationName",required = false) String destinationName,
             @RequestParam(value = "dateDeparture",required = false) String dateString) {
-        LocalDate dateDeparture = LocalDate.parse(dateString);
-        return flightService.searchFlights(airlineName,departureName,destinationName,dateDeparture);
+        return flightService.searchFlights(airlineName,departureName,destinationName,LocalDate.parse(dateString));
     }
 
     @PostMapping(path = "/addFlight")

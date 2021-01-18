@@ -22,7 +22,4 @@ public interface FlightRepository extends JpaRepository<Flight,Integer> {
 
     List<Flight> getFlightByDestination_NameContaining(String destinationName);
 
-    List<Flight> getFlightByAirlineAndDepartureAndDestinationAndDepartureTimeBetween(
-            Airline airline, Airport departure, Airport destination,LocalDateTime startOfDay,LocalDateTime endOfDay);
-
 }

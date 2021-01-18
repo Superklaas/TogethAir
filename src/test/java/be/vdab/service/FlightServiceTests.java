@@ -31,7 +31,6 @@ public class FlightServiceTests {
     @Mock
     private FlightRepository flightRepository;
 
-
     @Test
     void searchFlights() {
 

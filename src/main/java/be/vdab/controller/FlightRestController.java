@@ -45,6 +45,16 @@ public class FlightRestController {
         return flightService.searchFlights(dateDeparture,basePrice,departureName,destinationName,airlineName);
     }
 
+    @GetMapping(path = "/searchFlights2")
+    public List<Flight> searchFlights2(
+            @RequestParam(value = "dateDeparture",required = false) String dateDeparture,
+            @RequestParam(value = "basePrice",required = false) Double basePrice,
+            @RequestParam(value = "departureName",required = false) String departureName,
+            @RequestParam(value = "destinationName",required = false) String destinationName,
+            @RequestParam(value = "airlineName",required = false) String airlineName) {
+        return flightService.searchFlights2(dateDeparture,basePrice,departureName,destinationName,airlineName);
+    }
+
 
     @PostMapping(path = "/addFlight")
     public ResponseEntity addFlight(@Valid @RequestBody Flight flight, HttpServletRequest request) {

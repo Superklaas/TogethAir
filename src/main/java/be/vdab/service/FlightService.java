@@ -63,6 +63,11 @@ public class FlightService {
         return resultList;
     }
 
+    public List<Flight> searchFlights2(String dateDepartureString, Double basePrice, String departureName,
+                                       String destinationName, String airlineName) {
+        return flightRepository.searchFlights2(dateDepartureString,basePrice,departureName,destinationName,airlineName);
+    }
+
     public void updateFlight(Flight flight) {
         flightRepository.save(flight);
     }

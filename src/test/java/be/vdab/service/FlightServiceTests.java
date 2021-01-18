@@ -15,6 +15,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,32 +30,35 @@ public class FlightServiceTests {
     private FlightService flightService;
     @Mock
     private FlightRepository flightRepository;
-    @Mock
-    private AirlineRepository airlineRepository;
-    @Mock
-    private AirportRepository airportRepository;
+
 
     @Test
     void searchFlights() {
+
         Airline klm = new Airline("KLM");
         Airport brussels = new Airport("Brussels");
         Airport losAngeles = new Airport("Los Angeles");
+        double basePrice = 200;
         LocalDate dateDeparture = LocalDate.of(2021,1,12);
+        LocalDateTime startOfDay = dateDeparture.atStartOfDay();
+        LocalDateTime endOfDay = dateDeparture.atTime(23,59);
+
         Flight flight = new Flight(dateDeparture.atTime(12,45),dateDeparture.atTime(21,45),
                 200,brussels,losAngeles,null,null,klm,null,null);
         List<Flight> flights = Collections.singletonList(flight);
 
-        when(airlineRepository.findAirlineByNameContaining("KLM")).thenReturn(klm);
-        when(airportRepository.findAirportByNameContaining("Brussels")).thenReturn(brussels);
-        when(airportRepository.findAirportByNameContaining("Los Angeles")).thenReturn(losAngeles);
-        when(flightRepository.getFlightByAirlineAndDepartureAndDestinationAndDepartureTimeBetween(
-                klm,brussels,losAngeles,dateDeparture.atStartOfDay(),dateDeparture.atTime(23,59)
-        )).thenReturn(flights);
+        when(flightRepository.findAll()).thenReturn(flights);
+        when(flightRepository.getFlightByDepartureTimeBetween(startOfDay,endOfDay)).thenReturn(flights);
+        when(flightRepository.getFlightByBasePrice(basePrice)).thenReturn(flights);
+        when(flightRepository.getFlightByDeparture_NameContaining("Brussels")).thenReturn(flights);
+        when(flightRepository.getFlightByDestination_NameContaining("Los Angeles")).thenReturn(flights);
+        when(flightRepository.getFlightByAirline_NameContaining("KLM")).thenReturn(flights);
 
-        assertEquals(flights,flightService.searchFlights(
-                "KLM","Brussels","Los Angeles",dateDeparture));
+        assertEquals(flights,flightService.searchFlights("2021-01-12", 200.0,
+                "Brussels","Los Angeles", "KLM"));
 
-        Mockito.verifyNoMoreInteractions(airlineRepository,airportRepository,flightRepository);
+        Mockito.verifyNoMoreInteractions(flightRepository);
+
     }
 
 }

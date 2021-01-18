@@ -31,10 +31,6 @@ public class FlightService {
         return flightRepository.findAll();
     }
 
-    public List<Flight> getFlightByBasePrice(double price) {
-        return flightRepository.getFlightByBasePrice(price);
-    }
-
     public Optional<Flight> getFlightById(int id) {
         return flightRepository.findById(id);
     }

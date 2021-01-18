@@ -30,11 +30,6 @@ public class FlightRestController {
         return flightService.getFlightById(id);
     }
 
-    @GetMapping(path = "/getFlightByBasePrice",params = {"basePrice"})
-    public List<Flight> getFlightByBasePrice(@RequestParam("basePrice") double price) {
-        return flightService.getFlightByBasePrice(price);
-    }
-
     @GetMapping(path = "/searchFlights")
     public List<Flight> searchFlights(
             @RequestParam(value = "dateDeparture",required = false) String dateDeparture,

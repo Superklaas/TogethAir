@@ -3,8 +3,6 @@ package be.vdab.controller;
 import be.vdab.domain.Flight;
 import be.vdab.service.FlightService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,13 +35,24 @@ public class FlightRestController {
         return flightService.getFlightByBasePrice(price);
     }
 
+    @GetMapping(path = "/searchFlights2")
+    public List<Flight> searchFlights2(
+            @RequestParam(value = "dateDeparture",required = false) String dateDeparture,
+            @RequestParam(value = "basePrice",required = false) Double basePrice,
+            @RequestParam(value = "departureName",required = false) String departureName,
+            @RequestParam(value = "destinationName",required = false) String destinationName,
+            @RequestParam(value = "airlineName",required = false) String airlineName) {
+        return flightService.searchFlights2(dateDeparture,basePrice,departureName,destinationName,airlineName);
+    }
+
+
     @GetMapping(path = "/searchFlights")
     public List<Flight> searchFlights(
             @RequestParam(value = "airlineName",required = false) String airlineName,
             @RequestParam(value = "departureName",required = false) String departureName,
             @RequestParam(value = "destinationName",required = false) String destinationName,
             @RequestParam(value = "dateDeparture",required = false) String dateString) {
-        return flightService.searchFlights(airlineName,departureName,destinationName,LocalDate.parse(dateString));
+        return flightService.searchFlights(airlineName,departureName,destinationName, LocalDate.parse(dateString));
     }
 
     @PostMapping(path = "/addFlight")

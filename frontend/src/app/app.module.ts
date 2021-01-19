@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { OverviewFlightsComponent } from './overview-flights/overview-flights.component';
+import { OverviewFlightsComponent } from './search-flights/overview-flights.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
 import { HomepageComponent } from './homepage/homepage.component';
 

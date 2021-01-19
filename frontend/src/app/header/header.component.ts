@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  pageRequested = 1;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onPageChange(page) {
+    this.pageRequested = page;
+    console.log(this.pageRequested);
   }
 
 }

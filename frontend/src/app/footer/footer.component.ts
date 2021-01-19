@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
+  lastAccessed = '';
+
   constructor() { }
 
   ngOnInit(): void {
+    this.lastAccessed = new Date().toString();
   }
 
 }

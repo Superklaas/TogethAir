@@ -21,8 +21,8 @@ public class SearchFlightRepositoryImpl implements SearchFlightRepository {
     private EntityManager entityManager;
 
     @Override
-    public List<Flight> searchFlights2(String dateDepartureString, Double basePrice, String departureName,
-                                       String destinationName, String airlineName) {
+    public List<Flight> searchFlights(String dateDepartureString, Double basePrice, String departureName,
+                                      String destinationName, String airlineName) {
 
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery query = criteriaBuilder.createQuery(Flight.class);

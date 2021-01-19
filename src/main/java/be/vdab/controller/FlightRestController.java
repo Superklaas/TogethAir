@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,16 +39,15 @@ public class FlightRestController {
         return flightService.searchFlights(dateDeparture,basePrice,departureName,destinationName,airlineName);
     }
 
-    @GetMapping(path = "/searchFlights2")
-    public List<Flight> searchFlights2(
+    @GetMapping(path = "/searchFlightsComplicated")
+    public List<Flight> searchFlightsComplicated(
             @RequestParam(value = "dateDeparture",required = false) String dateDeparture,
             @RequestParam(value = "basePrice",required = false) Double basePrice,
             @RequestParam(value = "departureName",required = false) String departureName,
             @RequestParam(value = "destinationName",required = false) String destinationName,
             @RequestParam(value = "airlineName",required = false) String airlineName) {
-        return flightService.searchFlights2(dateDeparture,basePrice,departureName,destinationName,airlineName);
+        return flightService.searchFlightsComplicated(dateDeparture,basePrice,departureName,destinationName,airlineName);
     }
-
 
     @PostMapping(path = "/addFlight")
     public ResponseEntity addFlight(@Valid @RequestBody Flight flight, HttpServletRequest request) {

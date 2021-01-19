@@ -1,15 +1,8 @@
 package be.vdab.service;
 
-import be.vdab.domain.Airline;
-import be.vdab.domain.Airport;
 import be.vdab.domain.Flight;
-import be.vdab.domain.TravelClass;
-import be.vdab.repository.AirlineRepository;
-import be.vdab.repository.AirportRepository;
 import be.vdab.repository.FlightRepository;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -36,7 +29,12 @@ public class FlightService {
     }
 
     public List<Flight> searchFlights(String dateDepartureString, Double basePrice, String departureName,
-                                       String destinationName, String airlineName) {
+                                      String destinationName, String airlineName) {
+        return flightRepository.searchFlights(dateDepartureString,basePrice,departureName,destinationName,airlineName);
+    }
+
+    public List<Flight> searchFlightsComplicated(String dateDepartureString, Double basePrice, String departureName,
+                                                 String destinationName, String airlineName) {
         List<Flight> resultList = getAllFlights();
         if(dateDepartureString != null) {
             LocalDate dateDeparture = LocalDate.parse(dateDepartureString);
@@ -57,11 +55,6 @@ public class FlightService {
             resultList.retainAll(flightRepository.getFlightByAirline_NameContaining(airlineName));
         }
         return resultList;
-    }
-
-    public List<Flight> searchFlights2(String dateDepartureString, Double basePrice, String departureName,
-                                       String destinationName, String airlineName) {
-        return flightRepository.searchFlights2(dateDepartureString,basePrice,departureName,destinationName,airlineName);
     }
 
     public void updateFlight(Flight flight) {

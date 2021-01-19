@@ -3,10 +3,7 @@ package be.vdab.service;
 import be.vdab.domain.Airline;
 import be.vdab.domain.Airport;
 import be.vdab.domain.Flight;
-import be.vdab.repository.AirlineRepository;
-import be.vdab.repository.AirportRepository;
 import be.vdab.repository.FlightRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -53,7 +50,7 @@ public class FlightServiceTests {
         when(flightRepository.getFlightByDestination_NameContaining("Los Angeles")).thenReturn(flights);
         when(flightRepository.getFlightByAirline_NameContaining("KLM")).thenReturn(flights);
 
-        assertEquals(flights,flightService.searchFlights("2021-01-12", 200.0,
+        assertEquals(flights,flightService.searchFlightsComplicated("2021-01-12", 200.0,
                 "Brussels","Los Angeles", "KLM"));
 
         Mockito.verifyNoMoreInteractions(flightRepository);

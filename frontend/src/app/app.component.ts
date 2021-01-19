@@ -9,11 +9,4 @@ import {FooterComponent} from "./footer/footer.component";
 export class AppComponent {
   title = 'Togetair';
 
-  @ViewChild('footerComponent')
-  footerComponent: FooterComponent;
-
-  changeLastAccessed() {
-    console.log('The previous lastAccessed was ' + this.footerComponent.lastAccessed);
-    this.footerComponent.lastAccessed = new Date().toString();
-  }
 }

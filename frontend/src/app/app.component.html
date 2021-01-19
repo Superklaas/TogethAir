@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-homepage></app-homepage>
-<app-search-flights></app-search-flights>
-<app-add-flight></app-add-flight>
+<app-header #headerComponent></app-header>
+<app-homepage [hidden]="headerComponent.pageRequested != 1"></app-homepage>
+<app-search-flights [hidden]="headerComponent.pageRequested != 2"></app-search-flights>
+<app-add-flight [hidden]="headerComponent.pageRequested != 3"></app-add-flight>
 <app-footer></app-footer>

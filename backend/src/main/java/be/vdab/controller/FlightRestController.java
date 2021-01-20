@@ -27,6 +27,7 @@ public class FlightRestController {
 
     @GetMapping(path = "/getFlightById/{id}")
     public Optional<Flight> getFlightById(@PathVariable("id") int id) {
+        System.out.println("Request for " + id);
         return flightService.getFlightById(id);
     }
 

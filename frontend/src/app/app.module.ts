@@ -7,6 +7,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchFlightsComponent } from './search-flights/search-flights.componen
     SearchFlightsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

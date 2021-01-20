@@ -3,6 +3,7 @@ package be.vdab.controller;
 import be.vdab.domain.Flight;
 import be.vdab.service.FlightService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -74,7 +75,7 @@ public class FlightRestController {
     public ResponseEntity updateBasePrice(@PathVariable("id") int id, @RequestBody Flight patchFlight) {
         Flight flight = flightService.getFlightById(id).get();
         if(flight.equals(null)) {
-            return ResponseEntity.notFound().build();   // creates statuscode 404 if no flight matches id in url
+            return ResponseEntity.notFound().build();  // creates statuscode 404 if no flight matches id in url
         } else if((patchFlight.getId() != id) && (patchFlight.getId() != 0)) {
             return ResponseEntity.badRequest().build(); // creates statuscode 400 if patchFlight = other flight in db
         } else {
@@ -89,13 +90,5 @@ public class FlightRestController {
         flightService.deleteFlight(id);
         return ResponseEntity.noContent().build();  // creates statuscode 204
     }
-
-
-
-
-
-
-
-
 
 }

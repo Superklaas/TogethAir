@@ -8,6 +8,7 @@ import { AddFlightComponent } from './add-flight/add-flight.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchFlightsComponent } from './search-flights/search-flights.component';
 import {HttpClientModule} from "@angular/common/http";
+import { FlightComponent } from './flight/flight.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {HttpClientModule} from "@angular/common/http";
     FooterComponent,
     AddFlightComponent,
     HomepageComponent,
-    SearchFlightsComponent
+    SearchFlightsComponent,
+    FlightComponent
   ],
   imports: [
     BrowserModule,

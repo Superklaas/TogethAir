@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Flight} from "../model/Flight";
+import {DataService} from "../data.service";
 
 @Component({
   selector: 'app-flight',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightComponent implements OnInit {
 
-  constructor() { }
+  flight: Flight;
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.getFlightById(1).subscribe(
+      (next) => {
+        console.log(next);
+        this.flight = next;
+      }
+    )
   }
 
 }

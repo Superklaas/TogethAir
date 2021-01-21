@@ -28,31 +28,30 @@ public class FlightService {
         return flightRepository.findById(id);
     }
 
-    public List<Flight> searchFlights(String dateDepartureString, Double basePrice, String departureName,
-                                      String destinationName, String airlineName) {
-        return flightRepository.searchFlights(dateDepartureString,basePrice,departureName,destinationName,airlineName);
+    public List<Flight> searchFlights(String date, Double price, String departure, String destination, String airline) {
+        return flightRepository.searchFlights(date,price,departure,destination,airline);
     }
 
-    public List<Flight> searchFlightsComplicated(String dateDepartureString, Double basePrice, String departureName,
-                                                 String destinationName, String airlineName) {
+    public List<Flight> searchFlightsComplicated(String date, Double price, String departure,
+                                                 String destination, String airline) {
         List<Flight> resultList = getAllFlights();
-        if(dateDepartureString != null) {
-            LocalDate dateDeparture = LocalDate.parse(dateDepartureString);
+        if(date != null) {
+            LocalDate dateDeparture = LocalDate.parse(date);
             LocalDateTime startOfDay = dateDeparture.atStartOfDay();
             LocalDateTime endOfDay = dateDeparture.atTime(23,59);
             resultList.retainAll(flightRepository.getFlightByDepartureTimeBetween(startOfDay,endOfDay));
         }
-        if(basePrice != null) {
-            resultList.retainAll(flightRepository.getFlightByBasePrice(basePrice));
+        if(price != null) {
+            resultList.retainAll(flightRepository.getFlightByBasePrice(price));
         }
-        if(departureName != null) {
-            resultList.retainAll(flightRepository.getFlightByDeparture_NameContaining(departureName));
+        if(departure != null) {
+            resultList.retainAll(flightRepository.getFlightByDeparture_NameContaining(departure));
         }
-        if(destinationName != null) {
-            resultList.retainAll(flightRepository.getFlightByDestination_NameContaining(destinationName));
+        if(destination != null) {
+            resultList.retainAll(flightRepository.getFlightByDestination_NameContaining(destination));
         }
-        if(airlineName != null) {
-            resultList.retainAll(flightRepository.getFlightByAirline_NameContaining(airlineName));
+        if(airline != null) {
+            resultList.retainAll(flightRepository.getFlightByAirline_NameContaining(airline));
         }
         return resultList;
     }

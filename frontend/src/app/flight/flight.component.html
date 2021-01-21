@@ -1,4 +1,4 @@
-<div>
+<div id="flights">
   <table *ngIf = "flights" class="table table-striped">
     <thead>
       <th>Id</th>
@@ -27,6 +27,9 @@
           </table>
         </td>
         <td>{{flight.airline.name}}</td>
+        <td>
+          <button>Book</button>
+        </td>
       </tr>
     </tbody>
   </table>

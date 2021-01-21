@@ -1,1 +1,5 @@
-export interface Airline {}
+export class Airline {
+
+  name: string;
+
+}

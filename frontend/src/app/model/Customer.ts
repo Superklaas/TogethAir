@@ -1,1 +1,7 @@
-export interface Customer {}
+export class Customer {
+
+  name: string;
+  creditCardNumber: string;
+  expirationDate: string;
+
+}

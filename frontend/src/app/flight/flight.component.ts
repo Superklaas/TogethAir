@@ -22,4 +22,8 @@ export class FlightComponent implements OnInit {
     )
   }
 
+  enterTicketDetails(): void {
+
+  }
+
 }

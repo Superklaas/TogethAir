@@ -21,12 +21,12 @@ INSERT INTO airplane_capacity (airplane_id, capacity, travel_class) VALUES (4, 5
 INSERT INTO airplane_capacity (airplane_id, capacity, travel_class) VALUES (4, 400, 'ECONOMY');
 INSERT INTO airplane_capacity (airplane_id, capacity, travel_class) VALUES (4, 20, 'FIRSTCLASS');
 
-INSERT INTO airport (id, airport_code, country, name, region) VALUES (1, 'BRU', 'Belgium', 'Zaventem', 'Europe');
-INSERT INTO airport (id, airport_code, country, name, region) VALUES (2, 'AMS', 'Netherlands', 'Schiphol', 'Europe');
-INSERT INTO airport (id, airport_code, country, name, region) VALUES (3, 'CDG', 'France', 'Charles de Gaulle', 'Europe');
-INSERT INTO airport (id, airport_code, country, name, region) VALUES (4, 'JFK', 'United States', 'John F Kennedy', 'North America');
-INSERT INTO airport (id, airport_code, country, name, region) VALUES (5, 'LAX', 'Los Angeles', 'Los Angeles Airport', 'North America');
-INSERT INTO airport (id, airport_code, country, name, region) VALUES (6, 'AEP', 'Buenos Aires', 'Aeroparque Jorge Newbery', 'South America');
+INSERT INTO airport (id, airport_code, country, name, region) VALUES (1, 'BRU', 'Belgium', 'Brussels', 'Europe');
+INSERT INTO airport (id, airport_code, country, name, region) VALUES (2, 'AMS', 'Netherlands', 'Amsterdam', 'Europe');
+INSERT INTO airport (id, airport_code, country, name, region) VALUES (3, 'CDG', 'France', 'Paris', 'Europe');
+INSERT INTO airport (id, airport_code, country, name, region) VALUES (4, 'JFK', 'United States', 'New York', 'North America');
+INSERT INTO airport (id, airport_code, country, name, region) VALUES (5, 'LAX', 'United States', 'Los Angeles', 'North America');
+INSERT INTO airport (id, airport_code, country, name, region) VALUES (6, 'AEP', 'Argentina', 'Buenos Aires', 'South America');
 
 INSERT INTO customer (id, name, credit_card_number, expiration_date)
 VALUES (1, 'Filip', '4564-7896-8976-9876', '01/12');
@@ -52,11 +52,11 @@ INSERT INTO employee_airline (id, name, airline_id) VALUES (1, 'Klaas', 1);
 INSERT INTO employee_togethair (id, name) VALUES (1, 'Jonas');
 
 INSERT INTO flight (id, arrival_time, base_price, departure_time, airline_id, airplane_id, departure_id, destination_id, discount_id)
-VALUES (1, '2021-01-09 21:52:14', 200, '2021-01-09 19:52:21', 1, 2, 1, 5, 1);
+VALUES (1, '2021-01-10 10:52:14', 200, '2021-01-09 19:52:21', 1, 2, 1, 5, 1);
 
-INSERT INTO flight_booked_seats (flight_id, booked_seats, travel_class) VALUES (1, 35, 'BUSINESS');
-INSERT INTO flight_booked_seats (flight_id, booked_seats, travel_class) VALUES (1, 267, 'ECONOMY');
-INSERT INTO flight_booked_seats (flight_id, booked_seats, travel_class) VALUES (1, 10, 'FIRSTCLASS');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (1, 35, 'BUSINESS');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (1, 267, 'ECONOMY');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (1, 10, 'FIRSTCLASS');
 
 INSERT INTO passenger (id, name) VALUES (1, 'Jezus');
 

@@ -16,7 +16,7 @@ export class Flight {
   basePrice: number;
   departure: Airport;
   destination: Airport;
-  bookedSeats = {TravelClass, Number}
+  availableSeats = {TravelClass, Number}
   airplane: Airplane;
   airline: Airline;
   discount: Discount;

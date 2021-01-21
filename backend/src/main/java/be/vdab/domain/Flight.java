@@ -39,7 +39,7 @@ public class Flight extends AbstractEntity {
     @ElementCollection
     @MapKeyEnumerated(EnumType.STRING)
     @MapKeyColumn(name = "travel_class")
-    private Map<TravelClass,Integer> bookedSeats;
+    private Map<TravelClass,Integer> availableSeats;
 
     @ManyToOne
     private Airplane airplane;

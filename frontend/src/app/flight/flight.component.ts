@@ -9,16 +9,15 @@ import {DataService} from "../data.service";
 })
 export class FlightComponent implements OnInit {
 
-  flight: Flight;
+  flights: Flight[];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getFlightById(1).subscribe(
+    this.dataService.getAllFlights().subscribe(
       (next) => {
-        console.log(next);
-        this.flight = next;
-        console.log(this.flight);
+        this.flights = next;
+        console.log(this.flights);
       }
     )
   }

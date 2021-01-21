@@ -18,4 +18,8 @@ export class DataService {
     return this.http.get<Flight>(this.flightUrl + '/getFlightById/' + id);
   }
 
+  getAllFlights() : Observable<Flight[]> {
+    return this.http.get<Flight[]>(this.flightUrl + '/getAllFlights');
+  }
+
 }

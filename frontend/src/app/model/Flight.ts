@@ -1,4 +1,12 @@
 import {Airport} from "./Airport";
+import {Airplane} from "./Airplane";
+import {Airline} from "./Airline";
+import {Discount} from "./Discount";
+import {Ticket} from "./Ticket";
+
+export enum TravelClass {
+  FIRSTCLASS, BUSINESS, ECONOMY
+}
 
 export class Flight {
 
@@ -7,8 +15,11 @@ export class Flight {
   arrivalTime: Date;
   basePrice: number;
   departure: Airport;
-
-
-
+  destination: Airport;
+  bookedSeats = {TravelClass, Number}
+  airplane: Airplane;
+  airline: Airline;
+  discount: Discount;
+  tickets: Ticket[];
 
 }

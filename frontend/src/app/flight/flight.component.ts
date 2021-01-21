@@ -17,7 +17,7 @@ export class FlightComponent implements OnInit {
     this.dataService.getFlightById(1).subscribe(
       (next) => {
         console.log(next);
-        this.flight = Flight.fromHttp(next);
+        this.flight = next;
         console.log(this.flight);
       }
     )

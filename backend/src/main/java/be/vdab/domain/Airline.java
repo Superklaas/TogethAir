@@ -11,7 +11,6 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
-@AllArgsConstructor
 @RequiredArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -19,15 +18,5 @@ public class Airline extends AbstractEntity {
 
     @NonNull
     private String name;
-
-    @JsonManagedReference
-    @OneToMany(mappedBy = "airline")
-    private List<Flight> flights;
-
-    @ManyToMany
-    private List<Airplane> airplanes;
-
-    @OneToMany (mappedBy = "airline")
-    private List<EmployeeAirline> employees;
 
 }

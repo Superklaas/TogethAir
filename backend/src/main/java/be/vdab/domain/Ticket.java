@@ -18,16 +18,13 @@ public class Ticket extends AbstractEntity {
     @Enumerated(EnumType.STRING)
     private TravelClass travelClass;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Flight flight;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Passenger passenger;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Booking booking;
 
 }

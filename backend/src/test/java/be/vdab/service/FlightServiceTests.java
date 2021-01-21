@@ -40,7 +40,7 @@ public class FlightServiceTests {
         LocalDateTime endOfDay = dateDeparture.atTime(23,59);
 
         Flight flight = new Flight(dateDeparture.atTime(12,45),dateDeparture.atTime(21,45),
-                200,brussels,losAngeles,null,null,klm,null,null);
+                200,brussels,losAngeles,null,null,klm,null);
         List<Flight> flights = Collections.singletonList(flight);
 
         when(flightRepository.findAll()).thenReturn(flights);

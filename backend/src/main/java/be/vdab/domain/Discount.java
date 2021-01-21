@@ -36,8 +36,4 @@ public class Discount extends AbstractEntity {
     @MapKeyColumn(name = "volume")
     private Map<Integer,Integer> volumeDiscount;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "discount", cascade = CascadeType.REFRESH)
-    private List<Flight> flights;
-
 }

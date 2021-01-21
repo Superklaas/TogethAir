@@ -24,7 +24,4 @@ public class Customer extends AppUser {
             message = "expiration date not valid")
     private String expirationDate;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    List<Booking> bookings;
-
 }

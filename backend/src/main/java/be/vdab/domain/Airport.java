@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -25,13 +26,5 @@ public class Airport extends AbstractEntity {
     private String region;
 
     private String airportCode;
-
-    @JsonManagedReference
-    @OneToMany(mappedBy = "departure", cascade = CascadeType.REFRESH)
-    private List<Flight> departingFlights;
-
-    @JsonManagedReference
-    @OneToMany(mappedBy = "destination", cascade = CascadeType.REFRESH)
-    private List<Flight> arrivingFlights;
 
 }

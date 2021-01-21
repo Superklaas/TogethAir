@@ -8,17 +8,6 @@ INSERT INTO airplane (id, brand, model) VALUES (2, 'Boeing', '737');
 INSERT INTO airplane (id, brand, model) VALUES (3, 'Airbus', 'A320');
 INSERT INTO airplane (id, brand, model) VALUES (4, 'Airbus', 'A380');
 
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (1, 1);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (1, 4);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (2, 2);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (2, 3);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (2, 4);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (3, 4);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (4, 1);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (4, 2);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (4, 3);
-INSERT INTO airline_airplanes (airlines_id, airplanes_id) VALUES (4, 4);
-
 INSERT INTO airplane_capacity (airplane_id, capacity, travel_class) VALUES (1, 50, 'BUSINESS');
 INSERT INTO airplane_capacity (airplane_id, capacity, travel_class) VALUES (1, 400, 'ECONOMY');
 INSERT INTO airplane_capacity (airplane_id, capacity, travel_class) VALUES (1, 20, 'FIRSTCLASS');

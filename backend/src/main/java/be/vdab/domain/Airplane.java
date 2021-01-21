@@ -30,11 +30,4 @@ public class Airplane extends AbstractEntity {
     @MapKeyColumn(name = "travel_class")
     private Map<TravelClass,Integer> capacity;
 
-    @ManyToMany(mappedBy = "airplanes", cascade = CascadeType.REFRESH)
-    private List<Airline> airlines;
-
-    @JsonManagedReference
-    @OneToMany(mappedBy = "airplane", cascade = CascadeType.REFRESH)
-    private List<Flight> flights;
-
 }

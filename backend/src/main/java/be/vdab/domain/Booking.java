@@ -28,11 +28,7 @@ public class Booking extends AbstractEntity {
 
     private boolean isPayed;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "booking", cascade = CascadeType.PERSIST)
-    private List<Ticket> tickets;
-
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Customer customer;
 
 }

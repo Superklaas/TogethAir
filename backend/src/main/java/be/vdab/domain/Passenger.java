@@ -20,8 +20,4 @@ public class Passenger extends AbstractEntity {
     @NonNull
     private String name;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "passenger",cascade = CascadeType.REFRESH)
-    private List<Ticket> tickets;
-
 }

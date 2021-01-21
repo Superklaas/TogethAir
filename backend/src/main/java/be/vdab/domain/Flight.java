@@ -30,12 +30,10 @@ public class Flight extends AbstractEntity {
             message = "basePrice can contain 5 digits in integer and 2 digits in fraction")
     private double basePrice;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Airport departure;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Airport destination;
 
     @ElementCollection
@@ -43,20 +41,13 @@ public class Flight extends AbstractEntity {
     @MapKeyColumn(name = "travel_class")
     private Map<TravelClass,Integer> bookedSeats;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Airplane airplane;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Airline airline;
 
-    @JsonBackReference
-    @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+    @ManyToOne
     private Discount discount;
-
-    @JsonManagedReference
-    @OneToMany(mappedBy = "flight", cascade = CascadeType.PERSIST)
-    private List<Ticket> tickets;
 
 }

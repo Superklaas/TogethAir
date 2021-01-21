@@ -51,8 +51,13 @@ INSERT INTO employee_airline (id, name, airline_id) VALUES (1, 'Klaas', 1);
 
 INSERT INTO employee_togethair (id, name) VALUES (1, 'Jonas');
 
-INSERT INTO flight (id, arrival_time, base_price, departure_time, airline_id, airplane_id, departure_id, destination_id, discount_id)
+INSERT INTO togethair.flight (id, arrival_time, base_price, departure_time, airline_id, airplane_id, departure_id, destination_id, discount_id)
 VALUES (1, '2021-01-10 10:52:14', 200, '2021-01-09 19:52:21', 1, 2, 1, 5, 1);
+INSERT INTO togethair.flight (id, arrival_time, base_price, departure_time, airline_id, airplane_id, departure_id, destination_id, discount_id)
+VALUES (2, '2021-01-21 13:43:53', 50, '2021-01-21 11:43:48', 2, 1, 2, 3, 1);
+INSERT INTO togethair.flight (id, arrival_time, base_price, departure_time, airline_id, airplane_id, departure_id, destination_id, discount_id)
+VALUES (3, '2021-01-21 09:46:24', 300, '2021-01-20 16:46:05', 3, 4, 2, 6, 1);
+
 
 INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (1, 35, 'BUSINESS');
 INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (1, 267, 'ECONOMY');

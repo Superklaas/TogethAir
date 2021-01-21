@@ -62,6 +62,13 @@ VALUES (3, '2021-01-21 09:46:24', 300, '2021-01-20 16:46:05', 3, 4, 2, 6, 1);
 INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (1, 35, 'BUSINESS');
 INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (1, 267, 'ECONOMY');
 INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (1, 10, 'FIRSTCLASS');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (2, 35, 'BUSINESS');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (2, 267, 'ECONOMY');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (2, 10, 'FIRSTCLASS');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (3, 35, 'BUSINESS');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (3, 267, 'ECONOMY');
+INSERT INTO flight_available_seats (flight_id, available_seats, travel_class) VALUES (3, 10, 'FIRSTCLASS');
+
 
 INSERT INTO passenger (id, name) VALUES (1, 'Jezus');
 

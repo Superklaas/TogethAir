@@ -10,6 +10,7 @@ import {DataService} from "../data.service";
 export class FlightComponent implements OnInit {
 
   flights: Flight[];
+  closeResult: string;
 
   constructor(private dataService: DataService) { }
 
@@ -23,7 +24,6 @@ export class FlightComponent implements OnInit {
   }
 
   enterTicketDetails(): void {
-
   }
 
 }
